@@ -71,7 +71,7 @@ class KeywordQueryEventListener(EventListener):
                 WHERE sc.code LIKE ?
                 GROUP BY em.name
                 ORDER BY length(replace(sc.code, ?, ''))
-                LIMIT 8
+                LIMIT 40
                 '''
             sql_args = [skin_tone, search_term, search_term_orig]
         else:
@@ -85,7 +85,7 @@ class KeywordQueryEventListener(EventListener):
                   LEFT JOIN skin_tone AS skt
                     ON skt.name = em.name AND tone = ?
                 WHERE em.name LIKE ?
-                LIMIT 8
+                LIMIT 40
                 '''
             sql_args = [skin_tone, search_term]
 
